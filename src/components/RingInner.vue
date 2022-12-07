@@ -1,0 +1,32 @@
+<script setup lang="ts">
+
+
+</script>
+
+<template>
+  <div class="timer">
+    <slot name="time"></slot>
+    <slot name="start"></slot>
+    <slot name="settings"></slot>
+
+  </div>
+
+</template>
+
+<style lang="scss" scoped>
+/* inner circle */
+.timer {
+  align-items: center;
+  background: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3A393F 0%, #17171A 100%);
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  position: relative;
+  width: 500px;
+  z-index: 2;
+}
+</style>

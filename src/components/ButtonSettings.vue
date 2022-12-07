@@ -15,9 +15,9 @@
   background: none;
   cursor: pointer;
   opacity: 0.3;
-}
 
-.settings:hover {
-  opacity: 1;
+  &:hover {
+    opacity: 1;
+  }
 }
 </style>

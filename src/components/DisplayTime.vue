@@ -36,10 +36,10 @@
     width: 150px;
     text-align: center;
     outline: none;
-  }
 
-  &:disabled {
-    border-bottom: none;
+    &:disabled {
+      border-bottom: none;
+    }
   }
 }
 </style>

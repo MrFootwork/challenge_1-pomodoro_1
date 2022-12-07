@@ -21,9 +21,9 @@
   border: none;
   text-transform: uppercase;
   margin-bottom: 20px;
-}
 
-.start:hover {
-  opacity: 1;
+  &:hover {
+    opacity: 1;
+  }
 }
 </style>

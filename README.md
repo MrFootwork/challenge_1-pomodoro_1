@@ -1,16 +1,18 @@
-# Vue 3 + TypeScript + Vite
+![Advent of JavaScript](https://adventofjavascript.s3.us-east-1.amazonaws.com/2021/advent-of-js-gumroad-cover.png)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Day 1 - Pomodoro Timer
 
-## Recommended IDE Setup
+## Overview
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+These are the starter files and a suggested solution to the Pomodoro Timer.
+You can find more details about the challenge by [logging into Podia.](https://store.selfteach.me/login)
 
-## Type Support For `.vue` Imports in TS
+## Challenge
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+Within the _STARTER-FILES_ folder, you'll find everything you need to get started.
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+Users should be able to:
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+- Start and Stop the Timer
+- Click on the gear icon to change the length (minutes and seconds) for the timer.
+

@@ -5,7 +5,6 @@
 
 <template>
   <button class="start">start</button>
-
 </template>
 
 <style lang="scss" scoped>
@@ -19,6 +18,7 @@
   color: white;
   opacity: .5;
   border: none;
+  outline: none;
   text-transform: uppercase;
   margin-bottom: 20px;
 

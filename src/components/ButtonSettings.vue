@@ -13,6 +13,7 @@
 .settings {
   border: none;
   background: none;
+  outline: none;
   cursor: pointer;
   opacity: 0.3;
 

@@ -8,9 +8,7 @@
     <slot name="time"></slot>
     <slot name="start"></slot>
     <slot name="settings"></slot>
-
   </div>
-
 </template>
 
 <style lang="scss" scoped>

@@ -6,7 +6,7 @@
 <template>
   <div class="time">
     <div class="minutes">
-      <input type="text" value="15" disabled />
+      <input type="text" value="15" />
     </div>
     <div class="colon">:</div>
     <div class="seconds">

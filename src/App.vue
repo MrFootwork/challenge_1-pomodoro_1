@@ -8,17 +8,23 @@ import ButtonSettings from './components/ButtonSettings.vue'
 
 <template>
   <div class="wrapper">
+
     <RingOuter />
+
     <RingInner>
+
       <template v-slot:time>
         <DisplayTime />
       </template>
+
       <template v-slot:start>
         <ButtonStart />
       </template>
+
       <template v-slot:settings>
         <ButtonSettings />
       </template>
+
     </RingInner>
 
   </div>

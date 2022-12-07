@@ -1,10 +1,24 @@
 <script setup lang="ts">
+import { useTimerStore } from './../../src/store/timer'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
+const timerStore = useTimerStore()
+const { isRunning } = storeToRefs(timerStore)
+const { switchOn, switchOff } = timerStore
 
+function toggleTimer() {
+  if (isRunning.value) return switchOff()
+  if (!isRunning.value) return switchOn()
+}
+
+const captionButton = computed(() => {
+  return isRunning.value ? 'stop' : 'start'
+}) 
 </script>
 
 <template>
-  <button class="start">start</button>
+  <button class="start" @click="toggleTimer()">{{ captionButton }}</button>
 </template>
 
 <style lang="scss" scoped>

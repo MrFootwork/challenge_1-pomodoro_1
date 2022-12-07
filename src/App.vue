@@ -4,6 +4,7 @@ import RingInner from './components/RingInner.vue'
 import DisplayTime from './components/DisplayTime.vue'
 import ButtonStart from './components/ButtonStart.vue'
 import ButtonSettings from './components/ButtonSettings.vue'
+
 </script>
 
 <template>
@@ -35,8 +36,8 @@ import ButtonSettings from './components/ButtonSettings.vue'
 
 @font-face {
   font-family: "bebas";
-  src: url('../../public/fonts/bebasneue-book-webfont.woff') format('woff'),
-    url('../../public/fonts/bebasneue-book-webfont.woff2') format('woff2');
+  src: url('./fonts/bebasneue-book-webfont.woff') format('woff'),
+    url('./fonts/bebasneue-book-webfont.woff2') format('woff2');
 }
 
 body {

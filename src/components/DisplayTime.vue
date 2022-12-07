@@ -1,16 +1,24 @@
 <script setup lang="ts">
+import { useSettingStore } from './../../src/store/setting'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
+const settingStore = useSettingStore()
+const { isActivated } = storeToRefs(settingStore)
 
+const disabled = computed(() => {
+  return isActivated.value
+})
 </script>
 
 <template>
   <div class="time">
     <div class="minutes">
-      <input type="text" value="15" />
+      <input type="text" value="15" :disabled="disabled" />
     </div>
     <div class="colon">:</div>
     <div class="seconds">
-      <input type="text" value="00" disabled />
+      <input type="text" value="00" :disabled="disabled" />
     </div>
   </div>
 </template>

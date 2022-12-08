@@ -6,12 +6,12 @@ export const useTimerStore = defineStore('timer', () => {
 	const isRunning: boolean = ref(false)
 	// getters (computed())
 	// actions
-	function switchOn() {
+	function timerSwitchOn(): void {
 		isRunning.value = true
 	}
-	function switchOff() {
+	function timerSwitchOff(): void {
 		isRunning.value = false
 	}
 
-	return { isRunning, switchOn, switchOff }
+	return { isRunning, timerSwitchOn, timerSwitchOff }
 })

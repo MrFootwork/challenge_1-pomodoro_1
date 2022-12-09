@@ -32,13 +32,13 @@ watchEffect(() => {
       if (currentMinutes > 0 && currentSeconds === 0 && timeDisplay.centiSeconds === 0) {
         timeDisplay.minutes = (--currentMinutes).toString().padStart(1, '0')
         timeDisplay.seconds = '59'
-        timeDisplay.centiSeconds = 9
+        timeDisplay.centiSeconds = 99
         return
       }
       // decrement seconds by 1
       if (currentSeconds > 0 && timeDisplay.centiSeconds === 0) {
         timeDisplay.seconds = (--currentSeconds).toString().padStart(2, '0')
-        timeDisplay.centiSeconds = 9
+        timeDisplay.centiSeconds = 99
         return
       }
       // decrement centiSeconds by 1
@@ -46,7 +46,7 @@ watchEffect(() => {
       // stop timer
       if (currentMinutes === 0 && currentSeconds < 1) timerSwitchOff()
       if (!isRunning.value) return clearInterval(countDown)
-    }, 100)
+    }, 10)
   }
 }
 )

@@ -24,13 +24,21 @@ const timeDisplay = reactive({
 watchEffect(() => {
   if (isRunning.value) {
     let countDown = setInterval(() => {
-      if (+timeDisplay.minutes === 0 && +timeDisplay.seconds < 1) timerSwitchOff()
+
+      let currentMinutes = +timeDisplay.minutes
+      let currentSeconds = +timeDisplay.seconds
+
+      if (currentMinutes === 0 && currentSeconds < 1) timerSwitchOff()
       if (!isRunning.value) return clearInterval(countDown)
-      if (+timeDisplay.seconds === 0) {
-        timeDisplay.minutes = (+timeDisplay.minutes - 1).toString().padStart(1, '0')
-        timeDisplay.seconds = "60"
+
+      if (currentSeconds === 0) {
+        timeDisplay.minutes = (--currentMinutes).toString().padStart(1, '0')
+        timeDisplay.seconds = '59'
+        return
       }
-      timeDisplay.seconds = (+timeDisplay.seconds - 1).toString().padStart(2, '0')
+
+      timeDisplay.seconds = (--currentSeconds).toString().padStart(2, '0')
+
     }, 1000)
   }
 }

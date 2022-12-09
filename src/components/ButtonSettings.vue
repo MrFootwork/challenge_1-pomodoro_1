@@ -9,10 +9,16 @@ const { activate, deactivate } = settingStore
 
 const timerStore = useTimerStore()
 const { isRunning } = storeToRefs(timerStore)
+const { timerSwitchOff } = timerStore
 
 function toggleEditMode() {
   if (isEditable.value) return deactivate()
   if (!isEditable.value && !isRunning.value) return activate()
+  if (isRunning.value) {
+    timerSwitchOff()
+    activate()
+    return
+  }
 }
 </script>
 

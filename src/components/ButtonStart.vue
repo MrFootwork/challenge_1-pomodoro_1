@@ -5,11 +5,11 @@ import { computed } from 'vue'
 
 const timerStore = useTimerStore()
 const { isRunning } = storeToRefs(timerStore)
-const { switchOn, switchOff } = timerStore
+const { timerSwitchOn, timerSwitchOff } = timerStore
 
 function toggleTimer() {
-  if (isRunning.value) return switchOff()
-  if (!isRunning.value) return switchOn()
+  if (isRunning.value) return timerSwitchOff()
+  if (!isRunning.value) return timerSwitchOn()
 }
 
 const captionButton = computed(() => {

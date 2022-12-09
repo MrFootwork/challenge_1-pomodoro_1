@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useSettingStore } from './../../src/store/setting'
-import { useTimerStore } from './../../src/store/timer'
+import { useSettingStore } from './../store/setting'
+import { useTimerStore } from './../store/timer'
 import { storeToRefs } from 'pinia'
 import { computed, watchEffect, reactive } from 'vue'
 

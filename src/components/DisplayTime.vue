@@ -17,7 +17,8 @@ const disabled = computed(() => {
 
 const timeDisplay = reactive({
   minutes: "15",
-  seconds: "00"
+  seconds: "00",
+  centiSeconds: 0
 })
 
 // this runs the timer 
@@ -28,19 +29,24 @@ watchEffect(() => {
       let currentMinutes = +timeDisplay.minutes
       let currentSeconds = +timeDisplay.seconds
       // decrement minute and set seconds to 59
-      if (currentMinutes > 0 && currentSeconds === 0) {
+      if (currentMinutes > 0 && currentSeconds === 0 && timeDisplay.centiSeconds === 0) {
         timeDisplay.minutes = (--currentMinutes).toString().padStart(1, '0')
         timeDisplay.seconds = '59'
+        timeDisplay.centiSeconds = 9
         return
       }
       // decrement seconds by 1
-      if (currentSeconds > 0) {
+      if (currentSeconds > 0 && timeDisplay.centiSeconds === 0) {
         timeDisplay.seconds = (--currentSeconds).toString().padStart(2, '0')
+        timeDisplay.centiSeconds = 9
+        return
       }
+      // decrement centiSeconds by 1
+      --timeDisplay.centiSeconds
       // stop timer
       if (currentMinutes === 0 && currentSeconds < 1) timerSwitchOff()
       if (!isRunning.value) return clearInterval(countDown)
-    }, 1000)
+    }, 100)
   }
 }
 )

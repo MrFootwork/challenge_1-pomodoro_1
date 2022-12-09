@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTimerStore } from './../../src/store/timer'
+import { useSettingStore } from './../../src/store/setting'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
@@ -7,9 +8,19 @@ const timerStore = useTimerStore()
 const { isRunning } = storeToRefs(timerStore)
 const { timerSwitchOn, timerSwitchOff } = timerStore
 
+const settingStore = useSettingStore()
+const { deactivate } = settingStore
+
 function toggleTimer() {
-  if (isRunning.value) return timerSwitchOff()
-  if (!isRunning.value) return timerSwitchOn()
+  if (isRunning.value) {
+    timerSwitchOff()
+    return
+  }
+  if (!isRunning.value) {
+    timerSwitchOn()
+    deactivate()
+    return
+  }
 }
 
 const captionButton = computed(() => {

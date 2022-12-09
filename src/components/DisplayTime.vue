@@ -5,39 +5,32 @@ import { storeToRefs } from 'pinia'
 import { computed, watchEffect, reactive } from 'vue'
 
 const settingStore = useSettingStore()
-const { isActivated } = storeToRefs(settingStore)
+const { isEditable } = storeToRefs(settingStore)
 
 const timerStore = useTimerStore()
 const { isRunning } = storeToRefs(timerStore)
 const { timerSwitchOff } = timerStore
 
 const disabled = computed(() => {
-  return isActivated.value
+  return !isEditable.value
 })
 
-const time = reactive({
-  minutes: 15,
-  seconds: 0
-})
-
-const timeDisplay = computed(() => {
-  return {
-    minutes: ('' + time.minutes).padStart(2, '0'),
-    seconds: ('' + time.seconds).padStart(2, '0'),
-  }
+const timeDisplay = reactive({
+  minutes: "15",
+  seconds: "00"
 })
 
 // this runs the timer 
 watchEffect(() => {
   if (isRunning.value) {
     let countDown = setInterval(() => {
-      if (time.minutes === 0 && time.seconds < 1) timerSwitchOff()
+      if (+timeDisplay.minutes === 0 && +timeDisplay.seconds < 1) timerSwitchOff()
       if (!isRunning.value) return clearInterval(countDown)
-      if (time.seconds === 0) {
-        time.minutes--
-        time.seconds = 60
+      if (+timeDisplay.seconds === 0) {
+        timeDisplay.minutes = (+timeDisplay.minutes - 1).toString().padStart(1, '0')
+        timeDisplay.seconds = "60"
       }
-      time.seconds--
+      timeDisplay.seconds = (+timeDisplay.seconds - 1).toString().padStart(2, '0')
     }, 1000)
   }
 }
@@ -47,11 +40,12 @@ watchEffect(() => {
 <template>
   <div class="time">
     <div class="minutes">
-      <input type="text" :value="timeDisplay.minutes" :disabled="disabled" />
+      <!-- <input type="text" v-model="timeDisplay.minutes" :disabled="disabled" /> -->
+      <input type="text" v-model="timeDisplay.minutes" :disabled="disabled" />
     </div>
     <div class="colon">:</div>
     <div class="seconds">
-      <input type="text" :value="timeDisplay.seconds" :disabled="disabled" />
+      <input type="text" v-model="timeDisplay.seconds" :disabled="disabled" />
     </div>
   </div>
 </template>

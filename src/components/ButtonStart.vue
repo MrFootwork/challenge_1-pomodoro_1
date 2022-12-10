@@ -21,8 +21,8 @@ function toggleTimer() {
   }
   if (!timerStore.isRunning) {
     if (settingStore.isEditable) setInitialTime()
-    timerSwitchOn()
     stopEditing()
+    timerSwitchOn()
     return
   }
 }

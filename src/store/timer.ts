@@ -3,12 +3,12 @@ import { defineStore } from 'pinia'
 
 export const useTimerStore = defineStore('timer', () => {
 	// state
-	const initialMinutes: string = ref('15')
-	const initialSeconds: string = ref('00')
-	const isRunning: boolean = ref(false)
-	const minutes: string = ref('15')
-	const seconds: string = ref('00')
-	const centiSeconds: number = ref(0)
+	const initialMinutes = ref('15')
+	const initialSeconds = ref('00')
+	const isRunning = ref(false)
+	const minutes = ref('15')
+	const seconds = ref('00')
+	const centiSeconds = ref(0)
 	// getters (computed())
 	// actions
 	function timerSwitchOn(): void {

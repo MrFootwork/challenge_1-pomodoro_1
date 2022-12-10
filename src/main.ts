@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './meyerwebCSSreset.css'
+import './fonts.css'
 import App from './App.vue'
 
 const pinia = createPinia()

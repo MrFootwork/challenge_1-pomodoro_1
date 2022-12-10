@@ -32,14 +32,6 @@ import ButtonSettings from './components/ButtonSettings.vue'
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
-@font-face {
-  font-family: "bebas";
-  src: url('./fonts/bebasneue-book-webfont.woff') format('woff'),
-    url('./fonts/bebasneue-book-webfont.woff2') format('woff2');
-}
-
 body {
   align-items: center;
   background: #2B2A30;

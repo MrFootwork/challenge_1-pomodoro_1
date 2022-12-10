@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useSettingStore = defineStore('setting', () => {
 	// state
-	const isEditable: boolean = ref(false)
+	const isEditable = ref(false)
 	// getters (computed())
 	// actions
 	function startEditing() {

@@ -3,11 +3,11 @@ import { defineStore } from 'pinia'
 
 export const useTimerStore = defineStore('timer', () => {
 	// state
-	const initialMinutes: string = ref('11')
-	const initialSeconds: string = ref('03')
+	const initialMinutes: string = ref('15')
+	const initialSeconds: string = ref('00')
 	const isRunning: boolean = ref(false)
-	const minutes: string = ref('11')
-	const seconds: string = ref('05')
+	const minutes: string = ref('15')
+	const seconds: string = ref('00')
 	const centiSeconds: number = ref(0)
 	// getters (computed())
 	// actions
@@ -37,6 +37,9 @@ export const useTimerStore = defineStore('timer', () => {
 	function setInitialTime() {
 		initialMinutes.value = minutes.value.padStart(1, '0')
 		initialSeconds.value = seconds.value.padStart(2, '0')
+		minutes.value = minutes.value.padStart(1, '0')
+		seconds.value = seconds.value.padStart(2, '0')
+		centiSeconds.value = 0
 	}
 
 	return {

@@ -25,7 +25,7 @@ function toggleEditMode() {
 
 <template>
   <button class="settings" @click="toggleEditMode()">
-    <img src="images/gear.svg" alt="Settings" />
+    <img src="./../../public/images/gear.svg" alt="Settings" />
   </button>
 </template>
 

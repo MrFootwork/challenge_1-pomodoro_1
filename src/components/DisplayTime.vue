@@ -2,50 +2,41 @@
 import { useSettingStore } from './../store/setting'
 import { useTimerStore } from './../store/timer'
 import { storeToRefs } from 'pinia'
-import { computed, watchEffect, reactive } from 'vue'
+import { computed, watchEffect } from 'vue'
 
 const settingStore = useSettingStore()
 const { isEditable } = storeToRefs(settingStore)
 
 const timerStore = useTimerStore()
-const { isRunning } = storeToRefs(timerStore)
-const { timerSwitchOff } = timerStore
+const { timerSwitchOff, dropMinute, dropSecond, dropCentiSecond } = timerStore
 
 const disabled = computed(() => {
   return !isEditable.value
 })
 
-const timeDisplay = reactive({
-  minutes: "15",
-  seconds: "00",
-  centiSeconds: 0
-})
-
 // this runs the timer 
 watchEffect(() => {
-  if (isRunning.value) {
+  if (timerStore.isRunning) {
     let countDown = setInterval(() => {
       // get time variables as number type
-      let currentMinutes = +timeDisplay.minutes
-      let currentSeconds = +timeDisplay.seconds
+      const currentMinutes = +timerStore.minutes
+      const currentSeconds = +timerStore.seconds
+      const currentCentiSeconds = timerStore.centiSeconds
       // decrement minute and set seconds to 59
-      if (currentMinutes > 0 && currentSeconds === 0 && timeDisplay.centiSeconds === 0) {
-        timeDisplay.minutes = (--currentMinutes).toString().padStart(1, '0')
-        timeDisplay.seconds = '59'
-        timeDisplay.centiSeconds = 99
+      if (currentMinutes > 0 && currentSeconds === 0 && currentCentiSeconds === 0) {
+        dropMinute()
         return
       }
       // decrement seconds by 1
-      if (currentSeconds > 0 && timeDisplay.centiSeconds === 0) {
-        timeDisplay.seconds = (--currentSeconds).toString().padStart(2, '0')
-        timeDisplay.centiSeconds = 99
+      if (currentSeconds > 0 && currentCentiSeconds === 0) {
+        dropSecond()
         return
       }
       // decrement centiSeconds by 1
-      --timeDisplay.centiSeconds
+      dropCentiSecond()
       // stop timer
       if (currentMinutes === 0 && currentSeconds < 1) timerSwitchOff()
-      if (!isRunning.value) return clearInterval(countDown)
+      if (!timerStore.isRunning) return clearInterval(countDown)
     }, 10)
   }
 }
@@ -56,11 +47,11 @@ watchEffect(() => {
   <div class="time">
     <div class="minutes">
       <!-- <input type="text" v-model="timeDisplay.minutes" :disabled="disabled" /> -->
-      <input class="inputMinutes" type="text" v-model="timeDisplay.minutes" :disabled="disabled" />
+      <input class="inputMinutes" type="text" v-model="timerStore.minutes" :disabled="disabled" />
     </div>
     <div class="colon">:</div>
     <div class="seconds">
-      <input class="inputSeconds" type="text" v-model="timeDisplay.seconds" :disabled="disabled" />
+      <input class="inputSeconds" type="text" v-model="timerStore.seconds" :disabled="disabled" />
     </div>
   </div>
 </template>

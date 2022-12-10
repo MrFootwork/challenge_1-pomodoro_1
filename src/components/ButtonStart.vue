@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useTimerStore } from './../../src/store/timer'
-import { useSettingStore } from './../../src/store/setting'
+import { useTimerStore } from './../store/timer'
+import { useSettingStore } from './../store/setting'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
@@ -9,7 +9,7 @@ const { isRunning } = storeToRefs(timerStore)
 const { timerSwitchOn, timerSwitchOff } = timerStore
 
 const settingStore = useSettingStore()
-const { deactivate } = settingStore
+const { stopEditing } = settingStore
 
 function toggleTimer() {
   if (isRunning.value) {
@@ -18,7 +18,7 @@ function toggleTimer() {
   }
   if (!isRunning.value) {
     timerSwitchOn()
-    deactivate()
+    stopEditing()
     return
   }
 }

@@ -6,12 +6,12 @@ export const useSettingStore = defineStore('setting', () => {
 	const isEditable: boolean = ref(false)
 	// getters (computed())
 	// actions
-	function activate() {
+	function startEditing() {
 		isEditable.value = true
 	}
-	function deactivate() {
+	function stopEditing() {
 		isEditable.value = false
 	}
 
-	return { isEditable, activate, deactivate }
+	return { isEditable, startEditing, stopEditing }
 })

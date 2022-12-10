@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { useSettingStore } from './../../src/store/setting';
-import { useTimerStore } from './../../src/store/timer';
+import { useSettingStore } from './../store/setting';
+import { useTimerStore } from './../store/timer';
 import { storeToRefs } from 'pinia';
 
 const settingStore = useSettingStore()
 const { isEditable } = storeToRefs(settingStore)
-const { activate, deactivate } = settingStore
+const { startEditing, stopEditing } = settingStore
 
 const timerStore = useTimerStore()
 const { isRunning } = storeToRefs(timerStore)
 const { timerSwitchOff } = timerStore
 
 function toggleEditMode() {
-  if (isEditable.value) return deactivate()
-  if (!isEditable.value && !isRunning.value) return activate()
+  if (!isEditable.value && !isRunning.value) return startEditing()
+  if (isEditable.value) return stopEditing()
   if (isRunning.value) {
     timerSwitchOff()
-    activate()
+    startEditing()
     return
   }
 }

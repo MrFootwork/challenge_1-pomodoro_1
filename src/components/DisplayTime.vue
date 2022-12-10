@@ -56,11 +56,11 @@ watchEffect(() => {
   <div class="time">
     <div class="minutes">
       <!-- <input type="text" v-model="timeDisplay.minutes" :disabled="disabled" /> -->
-      <input type="text" v-model="timeDisplay.minutes" :disabled="disabled" />
+      <input class="inputMinutes" type="text" v-model="timeDisplay.minutes" :disabled="disabled" />
     </div>
     <div class="colon">:</div>
     <div class="seconds">
-      <input type="text" v-model="timeDisplay.seconds" :disabled="disabled" />
+      <input class="inputSeconds" type="text" v-model="timeDisplay.seconds" :disabled="disabled" />
     </div>
   </div>
 </template>
@@ -84,12 +84,19 @@ watchEffect(() => {
     font-size: 196px;
     height: 170px;
     width: 150px;
-    text-align: center;
     outline: none;
 
     &:disabled {
       border-bottom: none;
     }
+  }
+
+  .inputMinutes {
+    text-align: end;
+  }
+
+  .inputSeconds {
+    text-align: justify;
   }
 }
 </style>

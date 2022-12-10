@@ -9,13 +9,17 @@ const { startEditing, stopEditing } = settingStore
 
 const timerStore = useTimerStore()
 const { isRunning } = storeToRefs(timerStore)
-const { timerSwitchOff } = timerStore
+const { timerPause, setInitialTime } = timerStore
 
 function toggleEditMode() {
   if (!isEditable.value && !isRunning.value) return startEditing()
-  if (isEditable.value) return stopEditing()
+  if (isEditable.value) {
+    setInitialTime()
+    stopEditing()
+    return
+  }
   if (isRunning.value) {
-    timerSwitchOff()
+    timerPause()
     startEditing()
     return
   }

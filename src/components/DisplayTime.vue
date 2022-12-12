@@ -56,7 +56,7 @@ watchEffect(() => {
     <div class="seconds">
       <input class="inputSeconds" type="text" v-model="timerStore.seconds" :disabled="disabled" />
     </div>
-    <div class="centi-seconds">{{ `.${timerStore.centiSeconds}` }}</div>
+    <div class="centi-seconds">{{ `.${timerStore.centiSeconds.toString().padStart(2, '0')}` }}</div>
   </div>
 </template>
 
@@ -84,7 +84,7 @@ watchEffect(() => {
   }
 
   .inputSeconds {
-    text-align: justify;
+    text-align: center;
     padding: 0
   }
 

@@ -35,7 +35,11 @@ watchEffect(() => {
       // decrement centiSeconds by 1
       dropCentiSecond()
       // stop timer
-      if (currentMinutes === 0 && currentSeconds === 0) timerSwitchOff()
+      if (currentMinutes === 0
+        && currentSeconds === 0
+        && currentCentiSeconds === 0) {
+        timerSwitchOff()
+      }
       if (!timerStore.isRunning) return clearInterval(countDown)
     }, 10)
   }

@@ -18,6 +18,7 @@ export const useTimerStore = defineStore('timer', () => {
 		isRunning.value = false
 		seconds.value = initialSeconds.value
 		minutes.value = initialMinutes.value
+		centiSeconds.value = 0
 	}
 	function timerPause(): void {
 		isRunning.value = false

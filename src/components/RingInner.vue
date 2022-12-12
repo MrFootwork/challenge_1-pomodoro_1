@@ -28,8 +28,8 @@
     min-width: 80vw;
   }
 
-  max-height: 518px;
-  max-width : 518px;
+  max-height: 600px;
+  max-width : 600px;
 
   border-radius: 50%;
 

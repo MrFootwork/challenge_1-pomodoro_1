@@ -52,6 +52,7 @@ watchEffect(() => {
     <div class="seconds">
       <input class="inputSeconds" type="text" v-model="timerStore.seconds" :disabled="disabled" />
     </div>
+    <div class="centi-seconds">{{ `.${timerStore.centiSeconds}` }}</div>
   </div>
 </template>
 
@@ -59,9 +60,11 @@ watchEffect(() => {
 /* actual time */
 .time {
   font-family: "bebas";
-  display: flex;
   background: none;
   color: white;
+
+  display: flex;
+  align-items: baseline;
 
   @media screen and (orientation : landscape) {
     padding-top: 13vh
@@ -79,6 +82,18 @@ watchEffect(() => {
   .inputSeconds {
     text-align: justify;
     padding: 0
+  }
+
+  .centi-seconds {
+    @media screen and (orientation : landscape) {
+      font-size: 12vh;
+      width: 12vh;
+    }
+
+    @media screen and (orientation : portrait) {
+      font-size: 12vw;
+      width: 12vw;
+    }
   }
 
   input[type="text"] {

@@ -28,7 +28,7 @@ function toggleTimer() {
 }
 
 const captionButton = computed(() => {
-  return timerStore.isRunning ? ' stop' : ' start'
+  return timerStore.isRunning ? ' pause' : ' start'
 }) 
 </script>
 
@@ -38,6 +38,11 @@ const captionButton = computed(() => {
 
 <style lang="scss" scoped>
 .start {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+
   color: white;
   opacity: .5;
 
@@ -53,6 +58,7 @@ const captionButton = computed(() => {
     padding: 1vh;
     padding-bottom: 3vh;
     letter-spacing: 2vh;
+    text-indent: 2vh;
   }
 
   @media screen and (orientation : portrait) {
@@ -60,11 +66,7 @@ const captionButton = computed(() => {
     padding: 1vw;
     padding-bottom: 3vw;
     letter-spacing: 2vw;
+    text-indent: 2vw;
   }
-
-  cursor: pointer;
-  background: none;
-  border: none;
-  outline: none;
 }
 </style>

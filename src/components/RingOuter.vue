@@ -8,24 +8,46 @@ const { isRunning } = storeToRefs(timerStore)
 </script>
 
 <template>
-  <div class="ring" :class="{ ending: !isRunning }">
-    <svg width="518" height="518" viewBox="0 0 518 518">
-      <circle stroke-width="9px" x="0" y="y" cx="259" cy="259" r="254" />
-    </svg>
-  </div>
+  <div class="ring" :class="{ ending: !isRunning }"></div>
 </template>
 
 <style lang="scss" scoped>
 /* outer glow */
 .ring {
   position: absolute;
-  left: 0;
-  stroke: #09A65A;
-  top: 0;
-  z-index: 1;
 
-  &.ending circle {
-    stroke: #900A0A;
+  @media screen and (orientation : landscape) {
+    height: 80vh;
+    width: 80vh;
+  }
+
+  @media screen and (orientation : portrait) {
+    min-height: 80vw;
+    min-width: 80vw;
+  }
+
+  max-height: 518px;
+  max-width : 518px;
+
+
+  @media screen and (orientation : landscape) {
+    border: 1vw solid #00aa51;
+  }
+
+  @media screen and (orientation : portrait) {
+    border: 1vh solid #00aa51;
+  }
+
+  border-radius: 50%;
+
+  &.ending {
+    @media screen and (orientation : landscape) {
+      border: 1vw solid #9d0000;
+    }
+
+    @media screen and (orientation : portrait) {
+      border: 1vh solid #9d0000;
+    }
   }
 }
 </style>

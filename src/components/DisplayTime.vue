@@ -46,7 +46,6 @@ watchEffect(() => {
 <template>
   <div class="time">
     <div class="minutes">
-      <!-- <input type="text" v-model="timeDisplay.minutes" :disabled="disabled" /> -->
       <input class="inputMinutes" type="text" v-model="timerStore.minutes" :disabled="disabled" />
     </div>
     <div class="colon">:</div>
@@ -59,35 +58,66 @@ watchEffect(() => {
 <style lang="scss" scoped>
 /* actual time */
 .time {
-  display: flex;
   font-family: "bebas";
-  font-size: 196px;
-  margin: 30px auto;
-  position: relative;
-  top: 30px;
+  display: flex;
+  background: none;
+  color: white;
+
+  @media screen and (orientation : landscape) {
+    padding-top: 10vh
+  }
+
+  @media screen and (orientation : portrait) {
+    padding-top: 10vw
+  }
+
+  .inputMinutes {
+    text-align: end;
+    padding: 0
+  }
+
+  .inputSeconds {
+    text-align: justify;
+    padding: 0
+  }
 
   input[type="text"] {
     border: 0;
     border-bottom: 1px dashed white;
     background: none;
-    color: white;
-    font-family: "bebas";
-    font-size: 196px;
-    height: 170px;
-    width: 150px;
     outline: none;
+
+    font-family: "bebas";
+    background: none;
+    color: white;
+
+    @media screen and (orientation : landscape) {
+      height: 25vh;
+      font-size: 30vh;
+      width: 25vh;
+    }
+
+    @media screen and (orientation : portrait) {
+      height: 30vw;
+      font-size: 35vw;
+      width: 30vw;
+    }
 
     &:disabled {
       border-bottom: none;
     }
   }
 
-  .inputMinutes {
-    text-align: end;
-  }
+  .colon {
+    font-family: "bebas";
 
-  .inputSeconds {
-    text-align: justify;
+    @media screen and (orientation : landscape) {
+      font-size: 25vh;
+    }
+
+    @media screen and (orientation : portrait) {
+      font-size: 30vw;
+    }
   }
 }
 </style>

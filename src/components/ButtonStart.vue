@@ -28,7 +28,7 @@ function toggleTimer() {
 }
 
 const captionButton = computed(() => {
-  return timerStore.isRunning ? 'stop' : 'start'
+  return timerStore.isRunning ? ' stop' : ' start'
 }) 
 </script>
 
@@ -38,21 +38,31 @@ const captionButton = computed(() => {
 
 <style lang="scss" scoped>
 .start {
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  letter-spacing: 10px;
-  line-height: 20px;
-  background: none;
   color: white;
   opacity: .5;
-  border: none;
-  outline: none;
+
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  margin-bottom: 20px;
 
   &:hover {
     opacity: 1;
   }
+
+  @media screen and (orientation : landscape) {
+    font-size: 4vh;
+    padding: 1vh;
+    letter-spacing: 2vh;
+  }
+
+  @media screen and (orientation : portrait) {
+    font-size: 6vw;
+    padding: 1vw;
+    letter-spacing: 2vw;
+  }
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
 }
 </style>

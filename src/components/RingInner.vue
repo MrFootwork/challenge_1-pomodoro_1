@@ -13,17 +13,29 @@
 <style lang="scss" scoped>
 /* inner circle */
 .timer {
-  align-items: center;
   background: radial-gradient(71.4% 71.4% at 51.7% 28.6%, #3A393F 0%, #17171A 100%);
-  border-radius: 50%;
   box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  height: 500px;
+
+  position: absolute;
+
+  @media screen and (orientation : landscape) {
+    height: 80vh;
+    width: 80vh;
+  }
+
+  @media screen and (orientation : portrait) {
+    min-height: 80vw;
+    min-width: 80vw;
+  }
+
+  max-height: 518px;
+  max-width : 518px;
+
+  border-radius: 50%;
+
+  display : flex;
+  flex-flow : column;
   justify-content: center;
-  position: relative;
-  width: 500px;
-  z-index: 2;
+  align-items : center;
 }
 </style>

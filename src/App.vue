@@ -46,13 +46,26 @@ body {
 
   .wrapper {
     align-items: center;
+    display: flex;
+    justify-content: center;
+    // position: absolute;
+
+
     border-radius: 50%;
     box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
-    display: flex;
-    height: 518px;
-    justify-content: center;
-    position: relative;
-    width: 518px;
+
+    @media screen and (orientation : landscape) {
+      height: 80vh;
+      width: 80vh;
+    }
+
+    @media screen and (orientation : portrait) {
+      height: 80vw;
+      width: 80vw;
+    }
+
+    max-height: 518px;
+    max-width : 518px;
   }
 }
 </style>

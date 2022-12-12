@@ -31,14 +31,31 @@ function toggleEditMode() {
 
 <style lang="scss" scoped>
 .settings {
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
-  opacity: 0.3;
+  color: white;
+  opacity: .3;
+
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
 
   &:hover {
     opacity: 1;
   }
+
+  @media screen and (orientation : landscape) {
+    font-size: 4vh;
+    padding: 1vh;
+    letter-spacing: 2vh;
+  }
+
+  @media screen and (orientation : portrait) {
+    font-size: 6vw;
+    padding: 1vw;
+    letter-spacing: 2vw;
+  }
+
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
 }
 </style>

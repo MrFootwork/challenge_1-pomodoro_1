@@ -1,31 +1,44 @@
 <script setup lang="ts">
 import { useSettingStore } from './../store/setting';
 import { useTimerStore } from './../store/timer';
+import { computed } from 'vue'
 
 const settingStore = useSettingStore()
 const { startEditing, stopEditing } = settingStore
 
 const timerStore = useTimerStore()
-const { timerPause, setInitialTime } = timerStore
+const { timerPause, setInitialTime, timerSwitchOn } = timerStore
 
 function toggleEditMode() {
-  if (!settingStore.isEditable && !timerStore.isRunning) return startEditing()
-  if (settingStore.isEditable) {
-    setInitialTime()
-    stopEditing()
-    return
-  }
+
   if (timerStore.isRunning) {
     timerPause()
     startEditing()
     return
   }
+  if (!settingStore.isEditable
+    && !timerStore.isRunning) {
+    startEditing()
+    return
+  }
+  if (settingStore.isEditable) {
+    setInitialTime()
+    stopEditing()
+    timerSwitchOn()
+    return
+  }
 }
+
+const pathIcon = computed(() => {
+  return settingStore.isEditable
+    ? './../../images/check.svg'
+    : './../../images/gear.svg'
+})
 </script>
 
 <template>
   <button class="settings" @click="toggleEditMode()">
-    <img class="settings-gear" src="./../../public/images/gear.svg" alt="Settings" />
+    <img class="settings-gear" :src="pathIcon" alt="Settings" />
   </button>
 </template>
 
@@ -37,7 +50,7 @@ function toggleEditMode() {
   outline: none;
 
   color: white;
-  opacity: .3;
+  opacity: .4;
 
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;

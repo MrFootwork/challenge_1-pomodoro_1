@@ -10,6 +10,14 @@ export const useTimerStore = defineStore('timer', () => {
 	const seconds = ref('00')
 	const centiSeconds = ref(0)
 	// getters (computed())
+	const wasRunning = computed(() => {
+		return (
+			minutes.value < initialMinutes.value ||
+			seconds.value < initialSeconds.value ||
+			centiSeconds.value !== 0
+		)
+	})
+
 	// actions
 	function timerSwitchOn(): void {
 		isRunning.value = true
@@ -48,6 +56,7 @@ export const useTimerStore = defineStore('timer', () => {
 		minutes,
 		seconds,
 		centiSeconds,
+		wasRunning,
 		timerSwitchOn,
 		timerSwitchOff,
 		timerPause,

@@ -14,22 +14,37 @@ const { stopEditing } = settingStore
 function toggleTimer() {
   if (timerStore.isRunning) {
     timerPause()
-    if (minutes.value === '0' && seconds.value === '00') {
-      timerSwitchOff()
-    }
     return
   }
   if (!timerStore.isRunning) {
-    if (settingStore.isEditable) setInitialTime()
+    // TODO only set initial time, if any entry was made
+    if (settingStore.isEditable && hasBeenEdited) setInitialTime()
     stopEditing()
     timerSwitchOn()
     return
   }
 }
 
+const hasBeenEdited = computed(() => {
+  // TODO determine if user entered new values
+  return true
+})
+
 const captionButton = computed(() => {
-  return timerStore.isRunning ? ' pause' : ' start'
-}) 
+
+  if (!timerStore.isRunning
+    && !settingStore.isEditable
+    && !timerStore.wasRunning) return 'start'
+
+  if (!timerStore.isRunning
+    && settingStore.isEditable) return 'continue'
+
+  if (timerStore.isRunning
+    && !settingStore.isEditable) return 'pause'
+
+  if (timerStore.wasRunning) return 'continue'
+})
+
 </script>
 
 <template>

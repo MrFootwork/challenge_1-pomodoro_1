@@ -35,7 +35,7 @@ watchEffect(() => {
       // decrement centiSeconds by 1
       dropCentiSecond()
       // stop timer
-      if (currentMinutes === 0 && currentSeconds < 1) timerSwitchOff()
+      if (currentMinutes === 0 && currentSeconds === 0) timerSwitchOff()
       if (!timerStore.isRunning) return clearInterval(countDown)
     }, 10)
   }
@@ -67,11 +67,11 @@ watchEffect(() => {
   align-items: baseline;
 
   @media screen and (orientation : landscape) {
-    padding-top: 13vh
+    padding-top: 15vh
   }
 
   @media screen and (orientation : portrait) {
-    padding-top: 13vw
+    padding-top: 15vw
   }
 
   .inputMinutes {

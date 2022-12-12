@@ -41,15 +41,11 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   padding: 0;
-  // somehow line-height is set to 24px automatically causing the colon to be located too high
-  line-height: normal;
 
   .wrapper {
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: center;
-    // position: absolute;
-
 
     border-radius: 50%;
     box-shadow: -5px 14px 44px #000000, 5px -16px 50px rgba(255, 255, 255, 0.15);
@@ -64,8 +60,8 @@ body {
       width: 80vw;
     }
 
-    max-height: 518px;
-    max-width : 518px;
+    max-height: 600px;
+    max-width : 600px;
   }
 }
 </style>

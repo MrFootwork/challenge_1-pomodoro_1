@@ -64,11 +64,11 @@ watchEffect(() => {
   color: white;
 
   @media screen and (orientation : landscape) {
-    padding-top: 10vh
+    padding-top: 13vh
   }
 
   @media screen and (orientation : portrait) {
-    padding-top: 10vw
+    padding-top: 13vw
   }
 
   .inputMinutes {
@@ -98,9 +98,9 @@ watchEffect(() => {
     }
 
     @media screen and (orientation : portrait) {
-      height: 30vw;
-      font-size: 35vw;
-      width: 30vw;
+      height: 25vw;
+      font-size: 30vw;
+      width: 25vw;
     }
 
     &:disabled {
@@ -116,7 +116,7 @@ watchEffect(() => {
     }
 
     @media screen and (orientation : portrait) {
-      font-size: 30vw;
+      font-size: 25vw;
     }
   }
 }

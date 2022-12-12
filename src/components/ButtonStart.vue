@@ -51,12 +51,14 @@ const captionButton = computed(() => {
   @media screen and (orientation : landscape) {
     font-size: 4vh;
     padding: 1vh;
+    padding-bottom: 3vh;
     letter-spacing: 2vh;
   }
 
   @media screen and (orientation : portrait) {
     font-size: 6vw;
     padding: 1vw;
+    padding-bottom: 3vw;
     letter-spacing: 2vw;
   }
 

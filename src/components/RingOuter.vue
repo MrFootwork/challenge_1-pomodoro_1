@@ -31,22 +31,22 @@ const { isRunning } = storeToRefs(timerStore)
 
 
   @media screen and (orientation : landscape) {
-    border: 1vw solid #00aa51;
+    border: 2vh solid #00aa51;
   }
 
   @media screen and (orientation : portrait) {
-    border: 1vh solid #00aa51;
+    border: 2vw solid #00aa51;
   }
 
   border-radius: 50%;
 
   &.ending {
     @media screen and (orientation : landscape) {
-      border: 1vw solid #9d0000;
+      border: 2vh solid #9d0000;
     }
 
     @media screen and (orientation : portrait) {
-      border: 1vh solid #9d0000;
+      border: 2vw solid #9d0000;
     }
   }
 }

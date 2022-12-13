@@ -24,7 +24,6 @@ function toggleEditMode() {
   if (settingStore.isEditable) {
     setInitialTime()
     stopEditing()
-    timerSwitchOn()
     return
   }
 }
